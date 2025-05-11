@@ -25,7 +25,7 @@ A standalone Python script that integrates with Gmail API and performs rule-base
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/gmail-rules-manager.git
+git clone git@github.com:akshyv/gmail-rules-manager.git
 cd gmail-rules-manager
 ```
 
