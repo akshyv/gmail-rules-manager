@@ -1,0 +1,70 @@
+{
+  "rules": [
+    {
+      "id": "missed-message-alerts",
+      "name": "Missed Message Interview Alerts",
+      "predicate": "all",
+      "conditions": [
+        {
+          "field": "from",
+          "predicate": "contains",
+          "value": "voila@alerts.cutshort.ai"
+        },
+        {
+          "field": "subject",
+          "predicate": "contains",
+          "value": "missed message"
+        }
+      ],
+      "actions": [
+        {
+          "type": "mark_as_read"
+        },
+        {
+          "type": "move_message",
+          "destination": "Interviews"
+        }
+      ]
+    },
+    {
+      "id": "all-cutshort-alerts",
+      "name": "All Cutshort Alerts",
+      "predicate": "any",
+      "conditions": [
+        {
+          "field": "from",
+          "predicate": "contains",
+          "value": "cutshort.ai"
+        }
+      ],
+      "actions": [
+        {
+          "type": "mark_as_read"
+        }
+      ]
+    },
+    {
+      "id": "all-interview-emails",
+      "name": "All Interview Related Emails",
+      "predicate": "any",
+      "conditions": [
+        {
+          "field": "subject",
+          "predicate": "contains",
+          "value": "interview"
+        },
+        {
+          "field": "subject",
+          "predicate": "contains",
+          "value": "missed message"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move_message",
+          "destination": "Interviews"
+        }
+      ]
+    }
+  ]
+}
