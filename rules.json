@@ -1,19 +1,19 @@
 {
   "rules": [
     {
-      "id": "missed-message-alerts",
-      "name": "Missed Message Interview Alerts",
-      "predicate": "all",
+      "id": "asian-paints-spam",
+      "name": "Asian Paints Marketing Emails",
+      "predicate": "any",
       "conditions": [
         {
           "field": "from",
           "predicate": "contains",
-          "value": "voila@alerts.cutshort.ai"
+          "value": "asianpaints"
         },
         {
-          "field": "subject",
+          "field": "from",
           "predicate": "contains",
-          "value": "missed message"
+          "value": "Asian Paints"
         }
       ],
       "actions": [
@@ -22,47 +22,87 @@
         },
         {
           "type": "move_message",
-          "destination": "Interviews"
+          "destination": "Spam"
         }
       ]
     },
     {
-      "id": "all-cutshort-alerts",
-      "name": "All Cutshort Alerts",
+      "id": "akshy-kumar-personal",
+      "name": "Emails from Akshy Kumar",
       "predicate": "any",
       "conditions": [
         {
           "field": "from",
           "predicate": "contains",
-          "value": "cutshort.ai"
+          "value": "akshy"
+        },
+        {
+          "field": "from",
+          "predicate": "contains",
+          "value": "Akshy Kumar"
         }
       ],
       "actions": [
         {
           "type": "mark_as_read"
+        },
+        {
+          "type": "move_message",
+          "destination": "Self"
         }
       ]
     },
     {
-      "id": "all-interview-emails",
-      "name": "All Interview Related Emails",
+      "id": "project-related-emails",
+      "name": "Project Related Emails",
       "predicate": "any",
       "conditions": [
         {
           "field": "subject",
           "predicate": "contains",
-          "value": "interview"
+          "value": "proj"
         },
         {
           "field": "subject",
           "predicate": "contains",
-          "value": "missed message"
+          "value": "project"
         }
       ],
       "actions": [
         {
           "type": "move_message",
-          "destination": "Interviews"
+          "destination": "Projects"
+        }
+      ]
+    },
+    {
+      "id": "marketing-emails",
+      "name": "Marketing and Promotional Emails",
+      "predicate": "any",
+      "conditions": [
+        {
+          "field": "subject",
+          "predicate": "contains",
+          "value": "trends"
+        },
+        {
+          "field": "subject",
+          "predicate": "contains",
+          "value": "top"
+        },
+        {
+          "field": "from",
+          "predicate": "contains",
+          "value": "mailer"
+        }
+      ],
+      "actions": [
+        {
+          "type": "mark_as_read"
+        },
+        {
+          "type": "move_message",
+          "destination": "Promotions"
         }
       ]
     }
